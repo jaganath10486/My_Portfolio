@@ -5,7 +5,7 @@ export const Bio = {
     "I am a motivated and versatile Full Stack Developer with 1.9 years of experience in building high-performance backend systems and scalable, SEO-optimised web applications, With a strong passion for learning, a growth mindset, and a dedication to delivering high-quality results. I approach every challenge with a positive attitude and a commitment to meaningful contribution, ensuring impactful outcomes in every project I undertake.",
   github: "https://github.com/jaganath10486",
   resume:
-    "https://drive.google.com/file/d/15160r9pJbjkfrSQf34VAeHzqbMAayxG6/view?usp=sharing",
+    "https://drive.google.com/file/d/1EaTN3MqCtI8oSMQbPm998rx4Oo0noQJ0/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/naga-jaganath-9b81ba240/",
   insta: "https://www.instagram.com/___jaganath__as_dj_104/",
 };
