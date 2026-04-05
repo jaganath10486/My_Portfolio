@@ -1,11 +1,10 @@
 export const Bio = {
-  name: "S Naga Jaganath",
-  roles: ["Full Stack Developer", "Backend Engineer", "Programmer"],
-  description:
-    "I am a motivated and versatile Full Stack Developer with 2+ years of experience in building high-performance backend systems and scalable, SEO-optimised web applications, With a strong passion for learning, a growth mindset, and a dedication to delivering high-quality results. I approach every challenge with a positive attitude and a commitment to meaningful contribution, ensuring impactful outcomes in every project I undertake.",
+  name: "S Naga Jaganath Reddy",
+  roles: ["Full Stack Engineer", "Backend Engineer", "AI Full Stack Engineer"],
+  description: "Full Stack Engineer with 2+ years of experience building scalable, AI-powered web applications and high-performance backend systems. Expertise in LLM integration and recommendation systems to improve user engagement and search relevance. Proficient in React, Next.js, Node.js, Express.js, and distributed systems using Redis and modern AI APIs. ",
   github: "https://github.com/jaganath10486",
   resume:
-    "https://drive.google.com/file/d/1EaTN3MqCtI8oSMQbPm998rx4Oo0noQJ0/view?usp=sharing",
+    "https://drive.google.com/file/d/1TCFylICvHt1QzbTtd5qmKtJj2OlaXZzP/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/naga-jaganath-9b81ba240/",
   insta: "https://www.instagram.com/___jaganath__as_dj_104/",
 };
@@ -165,7 +164,7 @@ export const experiences = [
     role: "Software Developer",
     company: "Kynhood Technologies",
     date: "April 2024 - Present",
-    desc: "Engineered production-ready applications with a strong backend focus by integrating Redis caching, optimising MongoDB schemas and queries, and refining API architecture—reducing average latency by 60ms, boosting throughput, and improving system reliability at scale. Built automated organiser payout workflows using Easebuzz with webhooks, email alerts, and Excel reporting, cutting manual effort by 90%. Developed a data-driven event recommendation engine that increased user engagement by 50%, while simultaneously designing scalable Next.js (TypeScript) services within a shared monorepo that improved development efficiency and reusability by 80%. Additionally, enhanced page load and SEO performance through SSR and metadata optimisation, elevating Lighthouse scores from 40 to 65 and reducing first contentful paint by 3×.",
+    desc: "Engineered 4+ production-grade Next.js applications within a monorepo architecture, boosting development efficiency and code reuse by 80%. Enhanced page load performance and SEO by implementing SSR and metadata optimization, increasing Lighthouse scores from 40 to 65 and reducing First Contentful Paint (FCP) by 3×. Automated end-to-end organiser payout workflows by integrating Easebuzz webhooks, transactional emails, and automated Excel reports, eliminating 90% of manual finance operations.",
     skills: [
       "TypeScript",
       "Next.js",
@@ -183,7 +182,7 @@ export const experiences = [
     role: "Fullstack Developer Intern",
     company: "TensorGo Software",
     date: "December 2023 - January 2024",
-    desc: "Revolutionized the application’s billing system by seamlessly integrating Stripe Payments, automating invoice generation as PDFs, task scheduling, and efficient subscription management using Express.js.",
+    desc: "Developed 15+ reusable React.js components with consistent design patterns, enhancing UI uniformity and cross-device compatibility. Architected and integrated secure payment workflows using Stripe APIs with Express.js, automating subscription management, invoicing, and billing while reducing manual intervention.",
     skills: ["React.js", "Node Js", "Cassandra", "Stripe"],
   },
   {
@@ -246,8 +245,7 @@ export const projects = [
   {
     id: 0,
     title: "Equipment Rental Booking System",
-    description:
-      "Developed a full-stack rental platform with SSR for faster rendering, allowing users to browse, book, and manage  rentals with real-time inventory updates. Enhanced performance and reliability by integrating Redis caching, idempotent booking logic, and automated email  reminders, ensuring consistency and a seamless user experience.",
+    description: "Implemented an AI-driven recommendation system leveraging user behavior signals, boosting listing click-through rates by 40%. Developed an AI-powered natural language search that maps free-text queries to structured filters with AI-generated summaries and category comparisons, cutting search abandonment by 35%. Engineered an SSR + Redis backend with idempotent booking logic, cutting API latency by 60 ms.",
     image: "",
     tags: [
       "Next.js",
