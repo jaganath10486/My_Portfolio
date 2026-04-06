@@ -100,6 +100,13 @@ export const Img = styled.img`
   max-height: 300px;
   border-radius: 50%;
   border: 2px solid ${({ theme }) => theme.primary};
+  box-shadow: 0 0 0 6px ${({ theme }) => theme.primary + '22'},
+              0 0 30px 4px ${({ theme }) => theme.primary + '44'};
+  transition: box-shadow 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 0 0 0 8px ${({ theme }) => theme.primary + '33'},
+                0 0 50px 8px ${({ theme }) => theme.primary + '66'};
+  }
 
   @media (max-width: 768px) {
     max-width: 400px;
@@ -189,15 +196,40 @@ export const ResumeButton = styled.a`
     -20px -20px 60px #1F2634;
     &:hover {
         transform: scale(1.05);
-    transition: all 0.4s ease-in-out;
-    box-shadow:  20px 20px 60px #1F2634,
-    filter: brightness(1);
-    }    
+        transition: all 0.4s ease-in-out;
+        box-shadow: 20px 20px 60px #1F2634, -20px -20px 60px #1F2634;
+        filter: brightness(1.05);
+    }
     
     
     @media (max-width: 640px) {
         padding: 12px 0;
         font-size: 18px;
-    } 
+    }
 
+`;
+
+export const SocialMediaIcons = styled.div`
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    gap: 8px;
+`;
+
+export const SocialMediaIcon = styled.a`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: ${({ theme }) => theme.text_primary};
+    border: 1.5px solid ${({ theme }) => theme.text_primary + '55'};
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        color: ${({ theme }) => theme.primary};
+        border-color: ${({ theme }) => theme.primary};
+        transform: scale(1.1);
+        box-shadow: 0 0 12px ${({ theme }) => theme.primary + '55'};
+    }
 `;

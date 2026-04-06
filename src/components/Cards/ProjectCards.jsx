@@ -66,11 +66,11 @@ const Tag = styled.span`
 
 const Details = styled.div`
   width: 100%;
-  height: 370px;
   display: flex;
   flex-direction: column;
-  gap: 0px;
+  gap: 4px;
   padding: 0px 2px;
+  flex: 1;
 `;
 const Title = styled.div`
   font-size: 20px;
@@ -90,6 +90,8 @@ const Description = styled.div`
   color: ${({ theme }) => theme.text_secondary + 99};
   margin-top: 8px;
   max-width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
@@ -103,6 +105,12 @@ const Avatar = styled.img`
   background-color: ${({ theme }) => theme.white};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border: 3px solid ${({ theme }) => theme.card};
+`;
+
+const ButtonRow = styled.div`
+  display: flex;
+  gap: 10px;
+  width: 100%;
 `;
 
 const ButtonLink = styled.a`
@@ -137,10 +145,6 @@ const ButtonLink = styled.a`
 const ProjectCards = ({ project }) => {
   return (
     <Card
-      onClick={() => {
-        if (project.webapp && project.webapp !== "")
-          window.open(project.webapp, "_blank");
-      }}
     >
       <Image src={project.image} />
       <Tags>
@@ -152,9 +156,16 @@ const ProjectCards = ({ project }) => {
         <Title>{project.title}</Title>
         <Description>{project.description}</Description>
       </Details>
-      <ButtonLink href={project?.github} target="new">
-        View Code
-      </ButtonLink>
+      <ButtonRow>
+        <ButtonLink href={project?.github} target="new" dull>
+          View Code
+        </ButtonLink>
+        {project?.webapp && project.webapp !== "" && (
+          <ButtonLink href={project.webapp} target="_blank">
+            View App
+          </ButtonLink>
+        )}
+      </ButtonRow>
     </Card>
   );
 };

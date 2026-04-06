@@ -79,9 +79,10 @@ const Skill = styled.div`
 const SkillTitle = styled.h2`
   font-size: 28px;
   font-weight: 600;
-  color: ${({ theme }) => theme.text_secondary};
+  color: ${({ theme }) => theme.primary};
   margin-bottom: 20px;
   text-align: center;
+  letter-spacing: 0.3px;
 `
 
 const SkillList = styled.div`
@@ -103,6 +104,14 @@ const SkillItem = styled.div`
   align-items: center;
   justify-content: center;
   gap: 8px;
+  cursor: default;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background: ${({ theme }) => theme.primary + '18'};
+    border-color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.text_primary};
+    transform: translateY(-2px);
+  }
   @media (max-width: 768px) {
     font-size: 14px;
     padding: 8px 12px;

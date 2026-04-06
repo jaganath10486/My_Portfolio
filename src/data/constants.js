@@ -1,6 +1,6 @@
 export const Bio = {
-  name: "S Naga Jaganath Reddy",
-  roles: ["Full Stack Engineer", "Backend Engineer", "AI Full Stack Engineer"],
+  name: "S Naga Jaganath",
+  roles: ["AI Full Stack Engineer", "Full Stack Engineer", "Backend Engineer"],
   description: "Full Stack Engineer with 2+ years of experience building scalable, AI-powered web applications and high-performance backend systems. Expertise in LLM integration and recommendation systems to improve user engagement and search relevance. Proficient in React, Next.js, Node.js, Express.js, and distributed systems using Redis and modern AI APIs. ",
   github: "https://github.com/jaganath10486",
   resume:
@@ -244,7 +244,7 @@ export const education = [
 export const projects = [
   {
     id: 0,
-    title: "Equipment Rental Booking System",
+    title: "AI-Powered Equipment Rental Platform",
     description: "Implemented an AI-driven recommendation system leveraging user behavior signals, boosting listing click-through rates by 40%. Developed an AI-powered natural language search that maps free-text queries to structured filters with AI-generated summaries and category comparisons, cutting search abandonment by 35%. Engineered an SSR + Redis backend with idempotent booking logic, cutting API latency by 60 ms.",
     image: "",
     tags: [

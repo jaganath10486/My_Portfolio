@@ -65,8 +65,8 @@ const Card = styled.div`
 
     }
 
-    border: 0.1px solid #306EE8;
-    box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
+    border: 0.1px solid ${({ theme }) => theme.primary};
+    box-shadow: 0px 4px 24px ${({ theme }) => theme.primary + '26'};
 `
 
 const Top = styled.div`
@@ -134,11 +134,16 @@ const ItemWrapper = styled.div`
 `
 
 const Skill = styled.div`
-    font-size: 15px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.text_primary + 99};
+    font-size: 12px;
+    font-weight: 500;
+    color: ${({ theme }) => theme.primary};
+    background-color: ${({ theme }) => theme.primary + '18'};
+    border: 1px solid ${({ theme }) => theme.primary + '44'};
+    border-radius: 20px;
+    padding: 4px 12px;
     @media only screen and (max-width: 768px){
-        font-size: 12px;
+        font-size: 11px;
+        padding: 3px 8px;
     }
 `
 
@@ -167,7 +172,7 @@ const ExperienceCard = ({ experience }) => {
                             <b>Skills:</b>
                             <ItemWrapper>
                                 {experience?.skills?.map((skill, index) => (
-                                    <Skill>• {skill}</Skill>
+                                    <Skill>{skill}</Skill>
                                 ))}
                             </ItemWrapper>
                         </Skills>
