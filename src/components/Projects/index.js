@@ -38,6 +38,12 @@ const Projects = () => {
             :
             <ToggleButton value="Data Science" onClick={() => setToggle('Data Science')}>DATA SCIENCE</ToggleButton>
           }
+          <Divider />
+          {toggle === 'backend' ?
+            <ToggleButton active value="backend" onClick={() => setToggle('backend')}>BACKEND</ToggleButton>
+            :
+            <ToggleButton value="backend" onClick={() => setToggle('backend')}>BACKEND</ToggleButton>
+          }
         </ToggleButtonGroup>
         <CardContainer>
           {toggle === 'all' && projects
