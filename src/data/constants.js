@@ -7,7 +7,7 @@ export const Bio = {
   resume:
     "https://drive.google.com/file/d/1no36fljxd0P5UDrDIT7d6kF-K04Wp2_S/view",
   linkedin: "https://www.linkedin.com/in/naga-jaganath-9b81ba240/",
-  insta: "https://www.instagram.com/___jaganath__as_dj_104/",
+  insta: "https://www.instagram.com/jaganath_104/",
 };
 
 export const skills = [
