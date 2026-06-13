@@ -5,7 +5,7 @@ export const Bio = {
     "Full Stack Engineer with 2+ years of experience building and shipping production web applications, owning the full lifecycle from architecture to deployment. Proficient in the MERN stack, Next.js, and FastAPI, with hands-on experience integrating LLMs and AI agents into live systems. Delivered measurable impact by eliminating 90% of manual operations, cutting API latency by 60ms, and improving page load speeds by 3x.",
   github: "https://github.com/jaganath10486",
   resume:
-    "https://drive.google.com/file/d/1no36fljxd0P5UDrDIT7d6kF-K04Wp2_S/view",
+    "https://drive.google.com/file/d/1vPqbweYSZotiD62oP-QVOUb6vFK14JQz/view",
   linkedin: "https://www.linkedin.com/in/naga-jaganath-9b81ba240/",
   insta: "https://www.instagram.com/jaganath_104/",
 };
