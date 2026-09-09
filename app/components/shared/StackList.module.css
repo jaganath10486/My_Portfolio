@@ -1,0 +1,23 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  list-style: none;
+}
+
+.item {
+  padding: 5px var(--s-3);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  font-size: var(--t-micro);
+  font-stretch: var(--w-meta);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.small .item {
+  padding: 3px var(--s-2);
+  font-size: 0.75rem;
+}

@@ -1,0 +1,111 @@
+.row {
+  position: relative;
+  display: grid;
+  gap: var(--s-4);
+  padding-block: var(--s-6);
+  border-bottom: 1px solid var(--line-soft);
+  transition: border-color var(--dur) var(--ease);
+}
+
+@media (min-width: 860px) {
+  .row {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    column-gap: var(--s-8);
+    align-items: start;
+  }
+}
+
+.row:hover {
+  border-bottom-color: var(--brass-dim);
+}
+
+.title {
+  font-size: clamp(1.375rem, 2.6vw, 1.875rem);
+  font-weight: 600;
+  font-stretch: var(--w-heading);
+  letter-spacing: -0.018em;
+  line-height: 1.15;
+  color: var(--paper);
+  transition: color var(--dur) var(--ease);
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  /*
+   * Block-link overlay: the whole row is clickable, but only the title is in
+   * the accessibility tree as the link name.
+   */
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.row:hover .title {
+  color: var(--brass);
+}
+
+/*
+ * The junction lighting up. transform only, so the shift costs no reflow.
+ */
+.main {
+  transition: transform var(--dur) var(--ease);
+}
+
+@media (min-width: 860px) {
+  .row:hover .main,
+  .row:focus-within .main {
+    transform: translateX(8px);
+  }
+}
+
+.summary {
+  margin-top: var(--s-3);
+  color: var(--muted);
+  max-width: 54ch;
+  line-height: 1.6;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  align-items: flex-start;
+}
+
+@media (min-width: 860px) {
+  .meta {
+    align-items: flex-end;
+  }
+
+  /* Keep a wrapped second row of tags ranged right with the first. */
+  .meta > ul {
+    justify-content: flex-end;
+  }
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.live {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--t-micro);
+  font-stretch: var(--w-meta);
+  font-weight: 600;
+  color: var(--brass);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: var(--brass);
+  transform: rotate(45deg);
+}

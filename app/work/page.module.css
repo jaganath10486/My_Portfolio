@@ -1,0 +1,12 @@
+.head {
+  margin-bottom: var(--s-8);
+}
+
+.intro {
+  margin-top: var(--s-5);
+}
+
+/* Separates the featured project from the index rows beneath it. */
+.more {
+  margin-top: var(--s-8);
+}

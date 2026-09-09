@@ -1,0 +1,4 @@
+/* Separates the featured project from the index rows beneath it. */
+.more {
+  margin-top: var(--s-8);
+}

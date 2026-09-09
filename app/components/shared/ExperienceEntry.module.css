@@ -1,0 +1,97 @@
+.entry {
+  display: grid;
+  gap: var(--s-5);
+  padding-block: var(--s-7);
+  border-top: 1px solid var(--line-soft);
+}
+
+.entry:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+@media (min-width: 900px) {
+  .entry {
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+    column-gap: var(--s-8);
+    align-items: start;
+  }
+}
+
+.company {
+  font-size: var(--t-h3);
+  font-weight: 700;
+  font-stretch: var(--w-heading);
+  letter-spacing: -0.012em;
+  line-height: 1.2;
+  color: var(--paper);
+  text-wrap: balance;
+}
+
+.role {
+  margin-top: var(--s-2);
+  font-size: var(--t-small);
+  color: var(--brass);
+}
+
+.aside > .meta {
+  margin-top: var(--s-1);
+}
+
+.body {
+  display: grid;
+  gap: var(--s-5);
+}
+
+.highlights {
+  list-style: none;
+  display: grid;
+  gap: var(--s-4);
+}
+
+/*
+ * The rail junction reused as a list marker, so the bullet belongs to the same
+ * system as the page structure instead of being a generic disc.
+ */
+.highlight {
+  position: relative;
+  padding-left: var(--s-5);
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 68ch;
+}
+
+.highlight::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  background: var(--brass-dim);
+  transform: rotate(45deg);
+}
+
+/*
+ * Marks the present role, so "Present" in the date range is not the only thing
+ * carrying that information.
+ */
+.current {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-top: var(--s-3);
+  font-size: var(--t-micro);
+  font-stretch: var(--w-meta);
+  font-weight: 600;
+  color: var(--brass);
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  flex: none;
+  background: var(--brass);
+  transform: rotate(45deg);
+  box-shadow: 0 0 0 3px var(--brass-wash);
+}

@@ -1,0 +1,14 @@
+.narrative {
+  display: grid;
+  gap: var(--s-5);
+  margin-top: var(--s-6);
+}
+
+.experience {
+  display: grid;
+}
+
+/* Achievements sit under education rather than claiming a band of their own. */
+.achievements {
+  margin-top: var(--s-7);
+}

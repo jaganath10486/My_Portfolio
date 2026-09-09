@@ -1,0 +1,83 @@
+.footer {
+  border-top: 1px solid var(--line);
+  background: var(--ink-sunken);
+  padding-block: var(--s-8);
+}
+
+.inner {
+  display: grid;
+  gap: var(--s-6);
+  grid-template-areas:
+    "brand"
+    "nav"
+    "socials"
+    "colophon";
+}
+
+@media (min-width: 760px) {
+  .inner {
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas:
+      "brand nav socials"
+      "colophon colophon colophon";
+    align-items: start;
+    column-gap: var(--s-8);
+  }
+}
+
+.brand {
+  grid-area: brand;
+}
+
+.handle {
+  font-size: var(--t-h3);
+  font-weight: 700;
+  font-stretch: var(--w-heading);
+  letter-spacing: -0.01em;
+  color: var(--paper);
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.navList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-5);
+  list-style: none;
+  font-size: var(--t-small);
+}
+
+.socials {
+  grid-area: socials;
+  display: flex;
+  gap: var(--s-2);
+  list-style: none;
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-size: 19px;
+  transition:
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.social:hover {
+  color: var(--brass);
+  border-color: var(--brass-dim);
+}
+
+.colophon {
+  grid-area: colophon;
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--line-soft);
+}

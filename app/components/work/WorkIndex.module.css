@@ -1,0 +1,4 @@
+.index {
+  list-style: none;
+  border-top: 1px solid var(--line);
+}

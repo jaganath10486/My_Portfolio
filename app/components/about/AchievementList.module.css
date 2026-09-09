@@ -1,0 +1,25 @@
+.list {
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.item {
+  position: relative;
+  padding: var(--s-5) 0 var(--s-5) var(--s-6);
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--paper);
+  line-height: 1.6;
+  max-width: 68ch;
+}
+
+/* The rail junction again, so the marker belongs to the same system. */
+.item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(var(--s-5) + 0.6em);
+  width: 6px;
+  height: 6px;
+  background: var(--brass);
+  transform: rotate(45deg);
+}

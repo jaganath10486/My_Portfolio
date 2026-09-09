@@ -1,0 +1,61 @@
+.grid {
+  display: grid;
+  gap: var(--s-6);
+}
+
+@media (min-width: 620px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-7) var(--s-8);
+  }
+}
+
+@media (min-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.group {
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--line);
+}
+
+.title {
+  font-size: var(--t-small);
+  font-weight: 600;
+  font-stretch: var(--w-meta);
+  letter-spacing: 0.02em;
+  color: var(--brass);
+}
+
+.items {
+  list-style: none;
+  display: grid;
+  gap: var(--s-2);
+}
+
+/*
+ * The rail junction reused as the marker, so even this list belongs to the same
+ * system as the page structure rather than falling back to a generic disc.
+ */
+.item {
+  position: relative;
+  padding-left: var(--s-4);
+  color: var(--paper);
+  line-height: 1.5;
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 4px;
+  height: 4px;
+  background: var(--brass-dim);
+  transform: rotate(45deg);
+}

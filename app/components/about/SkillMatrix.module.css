@@ -1,0 +1,41 @@
+.matrix {
+  border-top: 1px solid var(--line);
+}
+
+.row {
+  display: grid;
+  gap: var(--s-2) var(--s-8);
+  padding-block: var(--s-5);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+@media (min-width: 700px) {
+  .row {
+    grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+    align-items: baseline;
+  }
+}
+
+.group {
+  font-size: var(--t-small);
+  font-weight: 600;
+  font-stretch: var(--w-meta);
+  color: var(--brass);
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  /*
+   * Spacing does the separating, so there is no punctuation to read out and
+   * nothing to look like a chip. Wide enough that multi-word entries still
+   * read as single units.
+   */
+  column-gap: var(--s-5);
+  row-gap: var(--s-2);
+  color: var(--paper);
+}
+
+.item {
+  white-space: nowrap;
+}

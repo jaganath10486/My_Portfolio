@@ -1,0 +1,243 @@
+.hero {
+  padding-block: var(--s-8) var(--s-8);
+}
+
+.rail {
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .rail {
+    padding-left: var(--rail-gap);
+  }
+
+  /*
+   * The one orchestrated moment on the site: the rail draws down the hero on
+   * load and the headline wipes up behind it. transform and clip-path only, so
+   * nothing reflows and the sequence costs no layout shift.
+   */
+  .rail::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    left: 0;
+    width: 1px;
+    background: var(--brass-dim);
+    transform-origin: top;
+    animation: rail-draw var(--dur-slow) var(--ease) both;
+  }
+
+  .rail::after {
+    content: "";
+    position: absolute;
+    left: -3px;
+    top: 0;
+    width: 7px;
+    height: 7px;
+    background: var(--brass);
+    transform: rotate(45deg);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-5);
+  grid-template-areas:
+    "portrait"
+    "byline"
+    "headline"
+    "lead"
+    "ctas";
+  justify-items: start;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "byline    portrait"
+      "headline  portrait"
+      "lead      portrait"
+      "ctas      portrait";
+    column-gap: var(--s-8);
+    align-items: start;
+  }
+}
+
+/* ── Byline ──────────────────────────────────────────────────────────── */
+
+/*
+ * Name and availability share one line above the headline. The name is small
+ * here on purpose — it is already the wordmark, the <title> and the JSON-LD
+ * subject, and a client reads the offer before they read who is offering it.
+ */
+.byline {
+  grid-area: byline;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-5);
+  margin-bottom: var(--s-2);
+}
+
+.name {
+  font-size: var(--t-small);
+  font-weight: 600;
+  font-stretch: var(--w-meta);
+  letter-spacing: 0.01em;
+  color: var(--muted);
+}
+
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--t-small);
+  font-stretch: var(--w-meta);
+  font-weight: 600;
+  color: var(--brass);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  flex: none;
+  background: var(--brass);
+  transform: rotate(45deg);
+  box-shadow: 0 0 0 3px var(--brass-wash);
+}
+
+/* ── Headline ────────────────────────────────────────────────────────── */
+
+/*
+ * Its own scale rather than the global .display clamp, which is tuned for a
+ * three-word name. A sentence at 136px would overrun the column.
+ */
+.headline {
+  grid-area: headline;
+  font-size: clamp(2.375rem, 6.2vw, 4.75rem);
+  font-weight: 700;
+  font-stretch: var(--w-display);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--paper);
+}
+
+.line {
+  display: block;
+  animation: wipe-up var(--dur-slow) var(--ease) both;
+}
+
+.line:nth-child(1) {
+  animation-delay: 90ms;
+}
+.line:nth-child(2) {
+  animation-delay: 170ms;
+}
+.line:nth-child(3) {
+  animation-delay: 250ms;
+}
+
+/* ── Portrait ────────────────────────────────────────────────────────── */
+
+/*
+ * Toned into the palette rather than presented as a photograph: desaturated,
+ * warmed back toward the brass, cropped square-shouldered. It humanises the
+ * pitch without competing with it — no ring, no glow, no circle.
+ */
+.portrait {
+  grid-area: portrait;
+  width: 88px;
+  height: 110px;
+  object-fit: cover;
+  object-position: center 22%;
+  border-radius: var(--radius);
+  filter: grayscale(1) contrast(1.06) brightness(0.92) sepia(0.28)
+    hue-rotate(-8deg) saturate(1.5);
+}
+
+@media (min-width: 900px) {
+  .portrait {
+    width: 200px;
+    height: 250px;
+    margin-top: var(--s-1);
+  }
+}
+
+/* ── Supporting copy ─────────────────────────────────────────────────── */
+
+.lead {
+  grid-area: lead;
+  color: var(--paper);
+  margin-top: var(--s-2);
+}
+
+.ctas {
+  grid-area: ctas;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-3);
+}
+
+/* Hairline strip carrying the headline stack. */
+.stackStrip {
+  margin-top: var(--s-7);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--line-soft);
+}
+
+/* ── Ledger ──────────────────────────────────────────────────────────── */
+
+/*
+ * Deliberately not a stats band: figures are set small and condensed in the
+ * left column with the sentence beside them, ruled like a ledger. The point is
+ * that each line is attributable, not that the numbers are large.
+ */
+.ledgerWrap {
+  margin-top: var(--s-7);
+}
+
+.ledgerTitle {
+  color: var(--muted);
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--line);
+}
+
+.ledger {
+  list-style: none;
+}
+
+.ledgerRow {
+  display: grid;
+  gap: var(--s-1) var(--s-5);
+  grid-template-columns: 1fr;
+  padding-block: var(--s-4);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+@media (min-width: 640px) {
+  .ledgerRow {
+    grid-template-columns: 8rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: var(--s-5);
+  }
+}
+
+.figure {
+  font-size: var(--t-h3);
+  font-weight: 700;
+  font-stretch: var(--w-meta);
+  letter-spacing: -0.01em;
+  color: var(--brass);
+  /* Lining figures of even width keep the column from shuffling. */
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.detail {
+  color: var(--muted);
+  max-width: 58ch;
+  line-height: 1.6;
+}

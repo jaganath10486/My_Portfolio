@@ -1,0 +1,52 @@
+.list {
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.item {
+  display: grid;
+  gap: var(--s-3);
+  padding-block: var(--s-6);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+@media (min-width: 900px) {
+  .item {
+    grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+    column-gap: var(--s-8);
+    align-items: baseline;
+  }
+}
+
+.head {
+  display: grid;
+  gap: var(--s-1);
+}
+
+/*
+ * The claim carries the section — set larger than the service name beside it,
+ * because it is the half a client still remembers tomorrow.
+ */
+.claim {
+  font-size: clamp(1.1875rem, 2.1vw, 1.5rem);
+  font-weight: 700;
+  font-stretch: var(--w-heading);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--brass);
+  text-wrap: balance;
+}
+
+.title {
+  font-size: var(--t-micro);
+  font-weight: 600;
+  font-stretch: var(--w-meta);
+  letter-spacing: 0.03em;
+  color: var(--faint);
+}
+
+.proof {
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 64ch;
+}

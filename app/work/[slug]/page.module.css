@@ -1,0 +1,174 @@
+.crumb {
+  margin-bottom: var(--s-6);
+  font-size: var(--t-small);
+}
+
+.head {
+  margin-bottom: var(--s-7);
+}
+
+.summary {
+  margin-top: var(--s-5);
+  color: var(--muted);
+}
+
+.category {
+  margin-top: var(--s-4);
+}
+
+.sectionLabel {
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--line);
+}
+
+.frame {
+  margin-bottom: var(--s-8);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--ink-raised);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.detail {
+  display: grid;
+  gap: var(--s-8);
+}
+
+@media (min-width: 900px) {
+  .detail {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 17rem);
+    column-gap: var(--s-8);
+    align-items: start;
+  }
+}
+
+.copy {
+  display: grid;
+  gap: var(--s-6);
+  justify-items: start;
+}
+
+.side {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.sideTitle {
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ── Pager ───────────────────────────────────────────────────────────── */
+
+.pager {
+  display: grid;
+  gap: var(--s-4);
+}
+
+@media (min-width: 700px) {
+  .pager {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-6);
+  }
+}
+
+.pageLink {
+  display: grid;
+  gap: var(--s-2);
+  padding: var(--s-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition:
+    border-color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease);
+}
+
+.pageLink:hover {
+  border-color: var(--brass-dim);
+  background: var(--ink-raised);
+}
+
+.pageNext {
+  text-align: right;
+  justify-items: end;
+}
+
+.pageTitle {
+  font-size: var(--t-h3);
+  font-weight: 600;
+  font-stretch: var(--w-heading);
+  letter-spacing: -0.012em;
+  line-height: 1.2;
+  color: var(--paper);
+  transition: color var(--dur) var(--ease);
+}
+
+.pageLink:hover .pageTitle {
+  color: var(--brass);
+}
+
+/*
+ * Multi-claim descriptions get the same marked list as the experience
+ * highlights, so a capability reads as a capability rather than disappearing
+ * into a dense paragraph.
+ */
+.points {
+  list-style: none;
+  display: grid;
+  gap: var(--s-4);
+}
+
+.point {
+  position: relative;
+  padding-left: var(--s-5);
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 66ch;
+}
+
+.point::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.66em;
+  width: 5px;
+  height: 5px;
+  background: var(--brass-dim);
+  transform: rotate(45deg);
+}
+
+/*
+ * "The hard part" is the section a client and a CTO both actually read — the
+ * one that shows judgement rather than a tool list. Given the brass rule and a
+ * raised ground so it reads as the centre of the page, not an aside.
+ */
+.hard {
+  display: grid;
+  gap: var(--s-3);
+  padding: var(--s-6);
+  background: var(--ink-raised);
+  border-left: 2px solid var(--brass);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.hardTitle {
+  font-size: var(--t-h3);
+  font-weight: 700;
+  font-stretch: var(--w-heading);
+  letter-spacing: -0.014em;
+  line-height: 1.2;
+  color: var(--brass);
+}
+
+.hardBody {
+  color: var(--paper);
+  line-height: 1.7;
+  max-width: 64ch;
+}

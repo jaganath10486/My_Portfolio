@@ -1,0 +1,51 @@
+.intro {
+  margin-top: var(--s-4);
+}
+
+.emailRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-4);
+  margin-top: var(--s-7);
+  padding-bottom: var(--s-6);
+  border-bottom: 1px solid var(--line);
+}
+
+.email {
+  font-size: clamp(1.25rem, 4.4vw, 2.25rem);
+  font-weight: 600;
+  font-stretch: var(--w-heading);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--paper);
+  text-decoration: none;
+  /* A long address must reflow rather than push the page sideways. */
+  overflow-wrap: anywhere;
+  /* Weighted to the top so the hover rule stays close to the text while the
+     target clears 24px at the smallest clamp size. */
+  padding-block: 6px 2px;
+  border-bottom: 1px solid transparent;
+  transition:
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.email:hover {
+  color: var(--brass);
+  border-bottom-color: var(--brass);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-6);
+}
+
+/* Keeps the full-time route available without letting it lead. */
+.aside {
+  margin-top: var(--s-6);
+  font-size: var(--t-small);
+  color: var(--faint);
+}

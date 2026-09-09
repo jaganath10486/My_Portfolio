@@ -1,0 +1,20 @@
+.wrap {
+  margin-bottom: var(--s-7);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-4) var(--s-6);
+}
+
+.aside {
+  font-size: var(--t-small);
+  color: var(--muted);
+}
+
+.desc {
+  margin-top: var(--s-4);
+}
