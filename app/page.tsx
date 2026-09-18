@@ -62,7 +62,7 @@ export default function Home() {
           <SectionHeading
             id="work-heading"
             title="Selected work"
-            description="Four builds worth reading about: a marketplace where the search is a language model, a finance app that knows when it does not have enough history to answer, a gateway that has to be trusted with other people's data, and a chat that has to stay connected."
+            description="Four builds worth reading about: a marketplace that works out what is free from its own bookings, a finance app that knows when it does not have enough history to answer, a gateway that has to be trusted with other people's data, and a chat that has to stay connected."
             aside={
               <Link className="link" href="/work">
                 All work

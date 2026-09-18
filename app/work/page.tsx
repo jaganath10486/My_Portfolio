@@ -18,7 +18,7 @@ import { workIndexStructuredData } from "@/lib/structured-data";
 import styles from "./page.module.css";
 
 const description =
-  "A rental marketplace with language-model search and an idempotent booking path, a personal finance app that forecasts a month in flight and lets a model explain the figures but never compute them, a gateway that masks PII before prompts reach OpenAI or Gemini, and real-time messaging on the MERN stack.";
+  "A rental marketplace that derives availability from its own bookings and plans a whole event kit from a sentence, a personal finance app that forecasts a month in flight and lets a model explain the figures but never compute them, a gateway that masks PII before prompts reach OpenAI or Gemini, and real-time messaging on the MERN stack.";
 
 export const metadata: Metadata = {
   title: "Work",

@@ -48,7 +48,7 @@ export const capabilities: readonly Capability[] = [
     claim: "One slot, one booking.",
     title: "Booking and subscriptions",
     proof:
-      "A Redis-cached booking backend with idempotent booking logic and BullMQ job processing, plus a subscription lifecycle with overdue auto-cancellation and PDF invoicing.",
+      "A rental backend that derives availability from the bookings themselves instead of a counter that can drift, with Redis caching and BullMQ job processing, plus a subscription lifecycle with overdue auto-cancellation and PDF invoicing.",
   },
   {
     claim: "A provider goes down, the request still lands.",
@@ -327,11 +327,11 @@ export const projects: readonly Project[] = [
     slug: "equipment-rental-platform",
     title: "AI-Powered Equipment Rental Platform",
     summary:
-      "A peer-to-peer rental marketplace where the search is a language model and the booking path is idempotent.",
+      "A peer-to-peer rental marketplace that works out what is free from the bookings themselves, and turns an event brief into a priced, bookable kit.",
     description:
-      "A marketplace for renting equipment between people, built end to end. An AI recommendation engine uses view history and booking categories to surface listings a renter is likely to want. Natural language search runs through LangChain orchestrating the Gemini API, converting a free-text query into structured MongoDB filters so nobody has to work a filter sidebar. Behind it, a Redis-cached booking backend with idempotent booking logic and BullMQ job processing.",
+      "A marketplace for renting cameras, audio gear and event equipment between people by the day, built end to end. Availability is never stored as a stock count — every request expands the overlapping bookings into per-day usage and takes the peak across the window asked for, so the calendar greys out the days that are genuinely taken and a clash comes back naming the first day that is short. A kit builder turns a brief like “outdoor wedding, 200 guests, evening” into a list that can be booked as one order: Gemini only ever picks ids and quantities out of a candidate set the server has already filtered to what is free on those dates, and every line it returns is re-checked against real stock and re-priced server-side, so nothing un-bookable reaches the screen. Search works the same way round — the real category tree goes into the prompt and anything the model invents is dropped, then results are scored by field weight rather than returned in collection order, with a price filter sorting only inside the relevance band. The booking lifecycle is a declarative table of who may move a booking where, and the API hands each side the actions that are legal for it, so the renter’s cancel button and the owner’s accept button come from the same rules the server enforces. One server-side function decides every price and the client asks for it instead of repeating the arithmetic, after a three-day rental was quoted at ₹9,500 and written as ₹19,500. On the owner side the platform reads its own failures back: searches that returned nothing are kept and aggregated into what to list next, and the insights API refuses to print a price benchmark below three comparable listings rather than dressing up noise as advice. Pickup, return and overdue reminders run on an hourly cron with the notification key written onto the booking document instead of a cache, and transactional email goes through a BullMQ queue after a blocking send once made already-created bookings report failure.",
     hardPart:
-      "Booking is a concurrency problem wearing a form's clothing. Two renters can hit the same slot in the same second, and a client that retries a request it thinks failed must not end up holding two reservations. The booking path is keyed so a repeat of the same intent resolves to the same reservation, and the slow work — confirmations, notifications — runs off a BullMQ queue, which keeps the response fast without letting the state drift.",
+      "Rentals overlap in ranges rather than points and a listing can hold five units, so availability is a partly-available interval, not a number to decrement. There was a stock counter in the schema when I started and nothing ever decremented it — the single guard that read it never fired, because the field name was misspelled. That is the argument against counters in one line, so availability is now derived on every read: the overlapping booking lines are expanded into per-day usage and the peak across the requested window is subtracted from the total. Summing the overlaps instead would have been shorter and wrong — two bookings at either end of a long window never actually coincide, so summing refuses dates that are free. Every path that writes a booking goes through that one gate, and it answers with the day that is short rather than just failing.",
     image: "/equipment_rental.png",
     stack: [
       "Next.js",
@@ -341,7 +341,7 @@ export const projects: readonly Project[] = [
       "MongoDB",
       "Redis",
       "BullMQ",
-      "LangChain",
+      "Zod",
       "Gemini API",
       "Google OAuth",
     ],
