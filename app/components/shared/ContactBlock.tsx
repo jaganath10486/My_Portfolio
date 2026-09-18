@@ -1,7 +1,8 @@
 import CopyEmailButton from "@/components/client/CopyEmailButton";
 import Band from "@/components/shared/Band";
+import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from "@/components/ui/Icons";
 import { Bio } from "@/data/constants";
-import { mailto } from "@/lib/site";
+import { mailto, whatsappUrl } from "@/lib/site";
 
 import styles from "./ContactBlock.module.css";
 
@@ -33,9 +34,27 @@ export default function ContactBlock() {
         <CopyEmailButton email={Bio.email} />
       </div>
 
+      {/*
+       * Email stays primary: it is the channel that survives a reply written
+       * three days later. WhatsApp leads the secondary row because a client
+       * with a half-formed idea will send a message before they write a mail,
+       * and the link carries an opener so they do not have to start one.
+       *
+       * The icons are here rather than on the primary button so the ghost row
+       * reads as one set of channels; .btn already carries the gap.
+       */}
       <div className={styles.actions}>
         <a className="btn btn-primary" href={mailto}>
           Email me
+        </a>
+        <a
+          className="btn btn-ghost"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <WhatsAppIcon className={styles.actionIcon} />
+          WhatsApp
         </a>
         <a
           className="btn btn-ghost"
@@ -43,7 +62,8 @@ export default function ContactBlock() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          LinkedIn<span className="sr-only"> profile (opens in a new tab)</span>
+          <LinkedInIcon className={styles.actionIcon} />
+          LinkedIn
         </a>
         <a
           className="btn btn-ghost"
@@ -51,7 +71,8 @@ export default function ContactBlock() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          GitHub<span className="sr-only"> profile (opens in a new tab)</span>
+          <GitHubIcon className={styles.actionIcon} />
+          GitHub
         </a>
       </div>
 
@@ -65,7 +86,6 @@ export default function ContactBlock() {
         >
           My résumé
         </a>
-        <span className="sr-only"> (opens in a new tab)</span>.
       </p>
     </Band>
   );

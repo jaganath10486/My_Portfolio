@@ -12,7 +12,7 @@ import type {
 
 export const Bio: BioType = {
   name: "Naga Jaganath Reddy",
-  shortName: "S Naga Jaganath",
+  shortName: "Naga Jaganath",
   roles: ["AI Full Stack Engineer", "Full Stack Engineer", "Backend Engineer"],
   description:
     "AI full stack engineer with close to three years of experience taking products from an empty repository to something running in production — SEO-ready Next.js frontends that load fast, APIs and queues that stay correct under load, LLMs, AI agents and RAG pipelines wired into real workflows, and the payments, authentication and booking plumbing in between. Recent work includes real-time QR ticketing that handled 20,000+ scans at a live concert with zero duplicate entries, payout automation that removed 90% of a finance team's manual work, and a threefold cut in First Contentful Paint.",
@@ -23,6 +23,7 @@ export const Bio: BioType = {
     "https://drive.google.com/file/d/1ISkZAhHTFst0rO3UmHMdLq3aROtmqbsN/view?usp=drive_link",
   linkedin: "https://www.linkedin.com/in/naga-jaganath-9b81ba240/",
   insta: "https://www.instagram.com/jaganath_104/",
+  whatsapp: "+919550045232",
 };
 
 /**
@@ -313,7 +314,7 @@ export const categoryLabels: Readonly<Record<ProjectCategory, string>> = {
 };
 
 /**
- * Three projects carry pages; the rest are listed by name with a repo link.
+ * Four projects carry pages; the rest are listed by name with a repo link.
  * The previous build gave a three-sentence CRUD exercise the same weight as the
  * LLM gateway, which cost more credibility than the extra entries earned.
  *
@@ -350,6 +351,33 @@ export const projects: readonly Project[] = [
     featured: 1,
   },
   {
+    slug: "budgetwise",
+    title: "BudgetWise",
+    summary:
+      "A personal finance app that forecasts a month in flight, with a Gemini assistant that explains the numbers but is never allowed to compute one.",
+    description:
+      "A personal finance app built end to end: what is safe to spend today, where the month ends up, and whether a purchase fits before it is made. One analytics pass loads a four-month window per request and derives everything downstream from it — recurring charges, the fixed versus variable split, the month-end projection, per-category pace and the line item behind each category shift — so the dashboard, budgets, commitments, planning and the assistant can never disagree with one another. Recurring commitments are detected from transaction history rather than kept as a list the user maintains: descriptions are normalised and grouped, then accepted as recurring only when the amount holds within 20% across two or more months and the billing date stays inside an eight-day window. Gemini runs three features on top of that — a monthly health check that ranks what to act on, the plain-English trade-off under a yes/tight/no affordability verdict, and a multi-turn assistant that answers questions about the user’s own spending and suggests the next one to ask. The assistant is grounded by construction: no tools and no query access, one server-assembled summary as its entire view of the data, a reply schema sent to the model and re-validated on the way back, and an explicit out-of-scope answer when the figure it was asked for is not in that summary. Every number the model talks about is computed in TypeScript first, so an outage costs the prose and not the answer — and the maths behind those numbers is covered by assert-based regression suites that run without a database.",
+    hardPart:
+      "A month in flight is not comparable to a month that finished, and the obvious fix makes it worse: multiplying spend-to-date by the days remaining extrapolates rent as though it were a daily habit, turning ₹32,706 of real spending on my test account into a ₹98,118 forecast against ₹62,000 of income. So charges that repeat are counted once and only variable spend gets the daily rate, which lands the same month at ₹41,026. The harder half is knowing when not to answer — telling rent apart from groceries needs at least one earlier month, and below that a single flag pulls the forecast out of the projection, the budget statuses, the summary copy and the model’s prompt together.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Zod",
+      "Gemini API",
+      "JWT",
+      "Tailwind CSS",
+    ],
+    category: "web",
+    image: "/budget-wise.png",
+    github: "https://github.com/jaganath10486/BudgetWise",
+    webapp: "https://budget-wise-ochre.vercel.app",
+    featured: 2,
+  },
+  {
     slug: "sentinelai-gateway",
     title: "SentinelAI Gateway",
     summary:
@@ -361,7 +389,7 @@ export const projects: readonly Project[] = [
     stack: ["FastAPI", "Python", "LangChain", "OpenAI", "Gemini", "spaCy"],
     category: "backend",
     github: "https://github.com/jaganath10486/SentinelAI-Gateway",
-    featured: 2,
+    featured: 3,
   },
   {
     slug: "web-chat",
@@ -382,7 +410,7 @@ export const projects: readonly Project[] = [
     category: "web",
     github: "https://github.com/jaganath10486/Web-Chat",
     webapp: "https://web-chat-beta-one.vercel.app/users/sign_up",
-    featured: 3,
+    featured: 4,
   },
 
   // Coursework and early side projects. Listed by name, no page of their own.
@@ -401,7 +429,8 @@ export const projects: readonly Project[] = [
   {
     slug: "job-portal",
     title: "Job Portal",
-    summary: "A Django REST job board with authentication, posting and filtering.",
+    summary:
+      "A Django REST job board with authentication, posting and filtering.",
     description:
       "A Django REST Framework job portal with secure authentication, job posting, candidate management and filtering.",
     stack: ["Python", "Django REST framework"],
@@ -412,7 +441,8 @@ export const projects: readonly Project[] = [
   {
     slug: "expenditure-management",
     title: "Expenditure Management",
-    summary: "A React expense tracker with local persistence, search and sorting.",
+    summary:
+      "A React expense tracker with local persistence, search and sorting.",
     description:
       "A React application for tracking expenditure, with local storage, CRUD operations, dynamic search and sorting.",
     stack: ["React", "Bootstrap"],

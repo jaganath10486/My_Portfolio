@@ -43,14 +43,14 @@ URL, so previews resolve to themselves. There are no secrets.
 | Route          | Contents                                                            |
 | -------------- | ------------------------------------------------------------------- |
 | `/`            | Offer → things I build → where it gets hard → work → how I work → contact |
-| `/work`        | Three projects with pages, plus earlier work as a linked list       |
+| `/work`        | Four projects with pages, plus earlier work as a linked list        |
 | `/work/[slug]` | Case study: what I built, **the hard part**, stack, links           |
 | `/about`       | Narrative, experience, stack, education                             |
 
 Contact is a closing block on every route rather than a page of its own — the
 offer converts better inside the narrative than behind a click.
 
-Only three projects have pages. Coursework and early side projects are listed
+Only four projects have pages. Coursework and early side projects are listed
 by name and linked to the repo (`archived: true` in the data), because a
 three-sentence CRUD exercise sitting at the same weight as the LLM gateway
 costs more credibility than it earns. `generateStaticParams` and `sitemap.ts`

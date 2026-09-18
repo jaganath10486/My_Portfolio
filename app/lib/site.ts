@@ -73,6 +73,22 @@ export const mailto = `mailto:${Bio.email}?subject=${encodeURIComponent(
 )}`;
 
 /**
+ * WhatsApp has no subject field, so the whole opener is the prefilled body.
+ * It is written to be sendable unchanged — the contact block asks for a
+ * paragraph, and an empty compose box is where that paragraph goes to die.
+ *
+ * wa.me wants digits only: no +, no spaces, no dashes. Bio.whatsapp is stored
+ * that way rather than formatted, because a display format would have to be
+ * stripped here anyway and the number is never shown as text.
+ */
+const whatsappOpener =
+  "Hi Naga — I found you through your portfolio. I’d like to talk about a project.";
+
+export const whatsappUrl = `https://wa.me/${Bio.whatsapp}?text=${encodeURIComponent(
+  whatsappOpener,
+)}`;
+
+/**
  * The build-time card from app/opengraph-image.tsx.
  *
  * Next attaches a file-based OG image to its own segment, but a page that

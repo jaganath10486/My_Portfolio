@@ -7,7 +7,6 @@ export default function ProjectLinks({
   emphasis = false,
 }: {
   project: Project;
-  /** Promotes the live link to the primary button on detail pages. */
   emphasis?: boolean;
 }) {
   return (
@@ -22,7 +21,7 @@ export default function ProjectLinks({
           Visit the live site
           <span className="sr-only">
             {" "}
-            for {project.title} (opens in a new tab)
+            for {project.title}
           </span>
         </a>
       )}
@@ -35,7 +34,7 @@ export default function ProjectLinks({
         Read the source
         <span className="sr-only">
           {" "}
-          for {project.title} on GitHub (opens in a new tab)
+          for {project.title} on GitHub
         </span>
       </a>
     </div>

@@ -14,9 +14,9 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: site.themeColor,
     icons: [
       {
-        src: "/jaganath_profilepic.jpg",
+        src: "/jaganath_profilepic.png",
         sizes: "527x612",
-        type: "image/jpeg",
+        type: "image/png",
       },
     ],
   };

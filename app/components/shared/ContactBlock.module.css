@@ -43,6 +43,14 @@
   margin-top: var(--s-6);
 }
 
+/* Slightly over 1em so the glyph matches the cap height of the label beside
+   it rather than sitting a little small; the gap comes from .btn. */
+.actionIcon {
+  width: 1.15em;
+  height: 1.15em;
+  flex-shrink: 0;
+}
+
 /* Keeps the full-time route available without letting it lead. */
 .aside {
   margin-top: var(--s-6);

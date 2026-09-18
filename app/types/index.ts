@@ -10,6 +10,8 @@ export interface Bio {
   readonly resume: string;
   readonly linkedin: string;
   readonly insta: string;
+  /** Digits only, country code first — wa.me rejects +, spaces and dashes. */
+  readonly whatsapp: string;
 }
 
 /**

@@ -21,7 +21,7 @@ export default function ArchivedList() {
             rel="noopener noreferrer"
           >
             {project.title}
-            <span className="sr-only"> on GitHub (opens in a new tab)</span>
+            <span className="sr-only"> on GitHub</span>
           </a>
           <span className={styles.stack}>{project.stack.join(", ")}</span>
           <span className={`meta ${styles.category}`}>

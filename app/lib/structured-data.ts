@@ -25,11 +25,11 @@ function person() {
     name: Bio.name,
     alternateName: site.title,
     url: site.url,
-    image: `${site.url}/jaganath_profilepic.jpg`,
+    image: `${site.url}/jaganath_profilepic.png`,
     email: `mailto:${Bio.email}`,
     jobTitle: site.jobTitle,
     description: Bio.description,
-    sameAs: [Bio.github, Bio.linkedin, Bio.insta],
+    sameAs: [Bio.github, Bio.linkedin],
     knowsAbout: skills.flatMap((group) => group.skills),
     alumniOf: education.map((entry) => ({
       "@type": "EducationalOrganization",

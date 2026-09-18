@@ -1,19 +1,23 @@
 import Link from "next/link";
 
-import { GitHubIcon, LinkedInIcon } from "@/components/ui/Icons";
+import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from "@/components/ui/Icons";
 import { Bio } from "@/data/constants";
 import { navItems } from "@/data/navigation";
-import { mailto } from "@/lib/site";
+import { mailto, whatsappUrl } from "@/lib/site";
 
 import styles from "./Footer.module.css";
 
 /*
- * LinkedIn and GitHub only. A personal Instagram is a fine thing to have and a
- * neutral-to-negative signal on a page whose job is winning client work — it
- * invites a stranger evaluating you professionally to go and browse your
+ * WhatsApp, LinkedIn and GitHub. A personal Instagram is a fine thing to have
+ * and a neutral-to-negative signal on a page whose job is winning client work
+ * — it invites a stranger evaluating you professionally to go and browse your
  * weekend. `Bio.insta` is still in the data if it should come back.
+ *
+ * WhatsApp leads because it is the only one of the three that starts a
+ * conversation instead of opening a profile.
  */
 const socials = [
+  { href: whatsappUrl, label: "WhatsApp", Icon: WhatsAppIcon },
   { href: Bio.linkedin, label: "LinkedIn", Icon: LinkedInIcon },
   { href: Bio.github, label: "GitHub", Icon: GitHubIcon },
 ];
@@ -52,7 +56,7 @@ export default function Footer() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${Bio.name} on ${label} (opens in a new tab)`}
+                aria-label={`${Bio.name} on ${label}`}
               >
                 <Icon />
               </a>
@@ -61,8 +65,7 @@ export default function Footer() {
         </ul>
 
         <p className={`meta ${styles.colophon}`}>
-          © {new Date().getFullYear()} {Bio.name}. Built with Next.js, no UI
-          framework.
+          © {new Date().getFullYear()} {Bio.name}.
         </p>
       </div>
     </footer>
